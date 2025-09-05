@@ -81,13 +81,13 @@ quiz-app/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/yourusername/quiz-app.git
+git clone https://github.com/dsmundhe/Quizzer-App.git
 ```
 
 2. Navigate to the project folder:
 
 ```bash
-cd quiz-app
+cd Quizzer
 ```
 
 3. Install dependencies:
