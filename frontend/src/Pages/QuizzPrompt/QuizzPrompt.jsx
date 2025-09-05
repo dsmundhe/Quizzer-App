@@ -16,17 +16,28 @@ I want you to generate only the "questions" array for a Quiz API in JSON format 
   }
 ]
 
-🔹 Strict Rules for the questions array:
-1. The quiz MUST contain **exactly 30 questions**. No more, no less.
-2. Each question MUST have **exactly 4 options**.
-3. Only **one correct answer** is allowed per question.
-4. The "answer" field must match one of the provided options exactly.
-5. The JSON must be **valid**, with no comments, no trailing commas, and proper syntax.
-6. Questions should be **unique**, clear, and cover a wide range of topics within "${topic}".
-7. Use simple and precise wording so each question is easily understandable.
-8. Include a variety of question types: definitions, concepts, applications, true/false, and multiple-choice scenarios.
-9. Ensure that options are **plausible**, so only one option is clearly correct.
-10. The JSON output should be **only the questions array**, ready to use in an API.
+🔹 STRICT RULES FOR THE QUESTIONS ARRAY:
+1. The array must contain exactly 30 questions. No more, no less.
+2. Each question object must contain:
+   a. A non-empty "question" string.
+   b. An "options" array with exactly 4 items.
+   c. An "answer" string that exactly matches one of the 4 options.
+3. Each question must have only one correct answer.
+4. All JSON must be valid:
+   - No comments.
+   - No trailing commas.
+   - Proper syntax.
+5. Questions must be unique, clear, and cover a wide range of topics within "${topic}".
+6. Use simple, precise wording for easy understanding.
+7. Include a mix of question types:
+   - Definitions
+   - Concepts
+   - Applications
+   - True/False
+   - Multiple-choice scenarios
+8. Options must be plausible; only one option should be clearly correct.
+9. Avoid ambiguity in question phrasing.
+10. The output must be **only the "questions" array**, ready to use in an API, with no additional text.
 
 Now generate a **questions array of exactly 30 questions** for the topic: "${topic}" following all the rules above.
 `;
