@@ -1,19 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ProfilePage = () => {
-  // Dummy user data (replace with your actual user state or props)
-  const user = {
+  const navigate = useNavigate();
+
+  // Fetch user data from localStorage (or replace with context/state)
+  const user = JSON.parse(localStorage.getItem("user")) || {
     name: "John Doe",
     email: "john.doe@example.com",
     mobile: "+91 9876543210",
     age: 25,
     address: "123 Main Street, City, Country",
-    profilePic: "https://i.pravatar.cc/150?img=12", // placeholder image
+    profilePic: "https://i.pravatar.cc/150?img=12", // placeholder
   };
 
+  const profileUrl = "https://i.pravatar.cc/150?img=12";
   const handleLogout = () => {
-    // Add your logout logic here
-    alert("Logged out!");
+    // Clear user data and token from localStorage
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    // Redirect to Home page
+    navigate("/", { replace: true }); // replace: true prevents going back to profile with browser back button
   };
 
   return (
@@ -29,7 +37,7 @@ const ProfilePage = () => {
           {/* Profile Image */}
           <div className="flex-shrink-0">
             <img
-              src={user.profilePic}
+              src={profileUrl}
               alt="Profile"
               className="w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-blue-300 shadow-lg object-cover"
             />

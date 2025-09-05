@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = () => {
+  const user = localStorage.getItem("user");
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-100 via-white to-blue-100 flex flex-col">
       {/* Navbar */}
@@ -20,32 +21,39 @@ const Home = () => {
 
         {/* Call to Action */}
         <div className="mt-8 flex flex-col sm:flex-row gap-4 sm:gap-6">
-          <Link
-            to="/login"
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-sm md:text-base"
-          >
-            Get Started
-          </Link>
-          <Link
-            to="/signup"
-            className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 transition text-sm md:text-base"
-          >
-            Create Account
-          </Link>
-
-          <Link
-            to="/landingpage"
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-sm md:text-base"
-          >
-            Explore Quizzes
-          </Link>
-
-          <Link
-            to="/landingpage"
-            className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-sm md:text-base"
-          >
-            Add Quiz
-          </Link>
+          {!user ? (
+            <>
+              {" "}
+              <Link
+                to="/login"
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-sm md:text-base"
+              >
+                Get Started
+              </Link>
+              <Link
+                to="/signup"
+                className="px-6 py-3 bg-gray-200 text-gray-800 rounded-lg shadow hover:bg-gray-300 transition text-sm md:text-base"
+              >
+                Create Account
+              </Link>
+            </>
+          ) : (
+            <>
+              {" "}
+              <Link
+                to="/landingpage"
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-sm md:text-base"
+              >
+                Explore Quizzes
+              </Link>
+              <Link
+                to="/landingpage"
+                className="px-6 py-3 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-sm md:text-base"
+              >
+                Add Quiz
+              </Link>
+            </>
+          )}
         </div>
       </main>
 

@@ -6,21 +6,17 @@ const QuizzPrompt = () => {
   const [copied, setCopied] = useState(false);
 
   const promptText = `
-I want you to generate a Quiz API in JSON format with the following structure:
+I want you to generate only the "questions" array for a Quiz API in JSON format with the following structure:
 
-{
-  "title": "Quiz Title",
-  "topic": "${topic}",
-  "questions": [
-    {
-      "question": "Question text?",
-      "options": ["Option1", "Option2", "Option3", "Option4"],
-      "answer": "Correct Option"
-    }
-  ]
-}
+[
+  {
+    "question": "Question text?",
+    "options": ["Option1", "Option2", "Option3", "Option4"],
+    "answer": "Correct Option"
+  }
+]
 
-🔹 Strict Rules for the Quiz API:
+🔹 Strict Rules for the questions array:
 1. The quiz MUST contain **exactly 30 questions**. No more, no less.
 2. Each question MUST have **exactly 4 options**.
 3. Only **one correct answer** is allowed per question.
@@ -30,9 +26,9 @@ I want you to generate a Quiz API in JSON format with the following structure:
 7. Use simple and precise wording so each question is easily understandable.
 8. Include a variety of question types: definitions, concepts, applications, true/false, and multiple-choice scenarios.
 9. Ensure that options are **plausible**, so only one option is clearly correct.
-10. The JSON output should be ready to use in an API, without requiring any modification.
+10. The JSON output should be **only the questions array**, ready to use in an API.
 
-Now generate a **quiz of exactly 30 questions** for the topic: "${topic}" following all the rules above.
+Now generate a **questions array of exactly 30 questions** for the topic: "${topic}" following all the rules above.
 `;
 
   const handleCopy = () => {
